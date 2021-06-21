@@ -1,0 +1,6 @@
+__copyright__    = 'Copyright (C) 2021 Akihiro Kiuchi'
+__version__      = '0.0.1'
+__license__      = 'MIT'
+__author__       = 'Akihiro Kiuchi'
+__author_email__ = 'aki.develop8128@gmail.com'
+__url__          = 'https://github.com/gray-armor/lkj'
