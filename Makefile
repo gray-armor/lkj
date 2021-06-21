@@ -6,5 +6,5 @@ install:
 	pip install dist/lkj-${VERSION}.tar.gz
 
 clean:
-	pip uninstall lkj
+	pip uninstall lkj -y
 	rm -rf dist lkj.egg-info
