@@ -8,6 +8,13 @@ CLI tool to report working time to Google Calendar
 pip install git+https://github.com/gray-armor/lkj
 ```
 
+## Build and install from source
+
+```
+make install
+# "make clean" to uninstall
+```
+
 ## Setup
 
 Summary
