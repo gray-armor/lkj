@@ -53,6 +53,9 @@ class LKJ:
                 print("Submitted.")
                 return
             if s == "n" or s == "N":
+                self.content.load()
+                self.content.set_done_at(None)
+                self.content.save()
                 print("Commit aborted")
                 return
 
