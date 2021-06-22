@@ -10,6 +10,17 @@ pip install git+https://github.com/gray-armor/lkj
 
 ## Setup
 
+Summary
+- Create GCP Project
+- Enable Google Calendar API
+- Create OAuth2.0 Client ID
+- Download credential JSON file
+- Place the file to `~/.lkj/credentials.json`
+- run
+```sh
+lkj init
+```
+
 ### Create GCP Project and Enable Google Calendar API
 
 see: https://developers.google.com/workspace/guides/create-project
