@@ -65,7 +65,15 @@ lkj n work title
 
 ```sh
 lkj c
+# if you don't like vim,
+EDITOR=nano lkj c
 ```
+
+Edit as you like
+- Created At
+- Done At
+- Title
+- Description
 
 ## Delete current working data
 

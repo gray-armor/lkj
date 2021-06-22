@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 from pathlib import Path
 from lkj.calendar import CalendarService
 from lkj.config import Config
@@ -35,7 +36,8 @@ class LKJ:
         self.content.set_done_at(done_at)
         self.content.save()
 
-        call(["vim", str(self.content.content_path.absolute())])
+        editor = os.environ.get('EDITOR', 'vim')
+        call([editor, str(self.content.content_path.absolute())])
 
         print("Submitting this to Google Calendar.")
         self.content.print()

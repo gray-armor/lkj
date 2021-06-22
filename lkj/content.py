@@ -25,13 +25,13 @@ class Content:
 
         try:
             with open(self.content_path, "r") as f:
-                self.__created_at = datetime.fromisoformat(re.sub("^Created At: ", "", f.readline()).strip())
-                done_at = re.sub("^Done At: ", "", f.readline()).strip()
+                self.__created_at = datetime.fromisoformat(re.sub("^Created At:", "", f.readline()).strip())
+                done_at = re.sub("^Done At:", "", f.readline()).strip()
                 try:
                     self.__done_at = datetime.fromisoformat(done_at)
                 except:
                     self.__done_at = None
-                self.__title = re.sub("^Title: ", "", f.readline()).strip()
+                self.__title = re.sub("^Title:", "", f.readline()).strip()
                 self.__message = f.read()
         except Exception:
             self.__valid = False
@@ -88,7 +88,7 @@ class Content:
                 "Created At: " + created_at.isoformat(),
                 "Done At: " + done_at,
                 "Title: " + title,
-                "<TBD>"
+                "<description>"
             ]))
         self.__valid = None
 
