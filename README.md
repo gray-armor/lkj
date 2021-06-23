@@ -56,7 +56,7 @@ pip uninstall lkj
 ## Start Working
 
 ```sh
-klj n
+lkj n
 # or
 lkj n work title
 ```
