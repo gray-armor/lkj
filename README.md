@@ -75,6 +75,12 @@ Edit as you like
 - Title
 - Description
 
+## Show current work
+
+```sh
+lkj
+```
+
 ## Delete current working data
 
 ```sh
