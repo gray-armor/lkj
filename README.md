@@ -50,7 +50,7 @@ lkj init
 ## Uninstall
 
 ```sh
-pip install lkj
+pip uninstall lkj
 ```
 
 ## Start Working
