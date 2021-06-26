@@ -6,9 +6,11 @@ from prettytable import PrettyTable
 
 class Content:
     TITLE = "Work"
+    PLACE = "自宅"
     __valid: bool = None
     __message:str = None
     __title: str = None
+    __place: str = None
     __created_at: datetime = None
     __done_at: datetime = None
 
@@ -32,6 +34,7 @@ class Content:
                 except:
                     self.__done_at = None
                 self.__title = re.sub("^Title:", "", f.readline()).strip()
+                self.__place = re.sub("^Place:", "", f.readline()).strip()
                 self.__message = f.read()
         except Exception:
             self.__valid = False
@@ -76,6 +79,12 @@ class Content:
 
         return self.__title
 
+    def place(self):
+        if not self.load():
+            return None
+
+        return self.__place
+
     def set_title(self, title: str):
         self.__title = title
 
@@ -83,11 +92,13 @@ class Content:
         created_at = self.__created_at or self.now()
         done_at = "" if self.__done_at is None else self.__done_at.isoformat()
         title = self.get_default_title() if self.__title is None or self.__title.strip() == "" else self.__title.strip()
+        place = self.__place or self.get_default_place()
         with open(self.content_path, "w") as f:
             f.write("\n".join([
                 "Created At: " + created_at.isoformat(),
                 "Done At: " + done_at,
                 "Title: " + title,
+                "Place: " + place,
                 "<description>"
             ]))
         self.__valid = None
@@ -100,6 +111,9 @@ class Content:
     def get_default_title(self):
         return self.TITLE
 
+    def get_default_place(self):
+        return self.PLACE
+
     def print(self):
         if not self.content_path.is_file():
             print("No current work exists")
@@ -107,11 +121,14 @@ class Content:
         x = PrettyTable()
         x.title = "Current Work"
         x.field_names = ["Key", "Value"]
+        x.add_row(["Title", self.title()])
         x.add_row(["Created At", self.created_at()])
         x.add_row(["Done At", self.done_at()])
-        x.add_row(["Title", self.title()])
+        x.add_row(["Place", self.place()])
         x.add_row(["Message", self.message()])
         print(x)
 
     def now(self) -> datetime:
-        return datetime.now().astimezone().replace(second=0, microsecond=0)
+        _now = datetime.now().astimezone()
+        min = int(_now.minute/15)*15
+        return _now.replace(minute=min, second=0, microsecond=0)

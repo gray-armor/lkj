@@ -65,7 +65,7 @@ class CalendarService:
         t = dt.timestamp()
         return datetime.fromtimestamp(t, timezone.utc)
 
-    def set_event(self, id: str, start: datetime, end: datetime, title: str,  message: str):
+    def set_event(self, id: str, start: datetime, end: datetime, title: str,  message: str, location: str):
         service = self.__get_service()
         request = service.events().insert(
             calendarId=id,
@@ -80,6 +80,7 @@ class CalendarService:
                     "dateTime": self.to_utc(end).isoformat(),
                     "timeZone": "Asia/Tokyo"
                 },
+                "location": location,
             },
         )
         try:

@@ -50,6 +50,7 @@ class LKJ:
                     self.content.done_at(),
                     self.content.title(),
                     self.content.message(),
+                    self.content.place(),
                 )
                 self.content.destroy()
                 print("Submitted.")

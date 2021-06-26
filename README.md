@@ -73,6 +73,7 @@ Edit as you like
 - Created At
 - Done At
 - Title
+- Place
 - Description
 
 ## Show current work
